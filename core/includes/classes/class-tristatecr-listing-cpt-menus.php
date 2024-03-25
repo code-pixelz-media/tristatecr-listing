@@ -28,15 +28,34 @@ class Tristatecr_Listing_Cpt_Menus{
      * @since 1.0.0
      */
     public function trs_register_custom_post_type(){
-        $args = array(
-            'public'        => true,
-            'label'         => __( 'Properties', 'textdomain' ),
-            'menu_icon'     => 'dashicons-location',
-            'has_archive'   => true,
-            'rewrite'       => array( 'slug' => 'listings' ),
-            'menu_position' => 5,
+        $labels = array(
+            'name'                  => _x( 'Properties', 'Post Type General Name', 'tristatecr-listing' ),
+            'singular_name'         => _x( 'Property', 'Post Type Singular Name', 'tristatecr-listing' ),
+            'menu_name'             => __( 'Properties', 'tristatecr-listing' ),
+            'all_items'             => __( 'All Properties', 'tristatecr-listing' ),
+            'add_new_item'          => __( 'Add New Property', 'tristatecr-listing' ),
+            'add_new'               => __( 'Add New Property', 'tristatecr-listing' ),
+            'new_item'              => __( 'New Property', 'tristatecr-listing' ),
+            'edit_item'             => __( 'Edit Property', 'tristatecr-listing' ),
+            'update_item'           => __( 'Update Property', 'tristatecr-listing' ),
+            'view_item'             => __( 'View Property', 'tristatecr-listing' ),
+            'search_items'          => __( 'Search Property', 'tristatecr-listing' ),
+            'not_found'             => __( 'Not found', 'tristatecr-listing' ),
+            'not_found_in_trash'    => __( 'Not found in Trash', 'tristatecr-listing' ),
         );
-        register_post_type( 'tsc_property', $args );
+        
+        $args = array(
+            'label'                 => __( 'Properties', 'tristatecr-listing' ),
+            'description'           => __( 'Properties Description', 'tristatecr-listing' ),
+            'labels'                => $labels,
+            'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
+            'public'                => true,
+            'menu_icon'             => 'dashicons-location',
+            'has_archive'           => true,
+            'rewrite'               => array( 'slug' => 'listings' ),
+            'menu_position'         => 5,
+        );
+        register_post_type( 'properties', $args );
     }
 
     /**
@@ -46,7 +65,7 @@ class Tristatecr_Listing_Cpt_Menus{
      */
     public function trs_add_plugin_settings(){
         add_submenu_page(
-            'edit.php?post_type=tsc_property',
+            'edit.php?post_type=properties',
             'Property Settings',
             'Settings',
             'manage_options',
@@ -87,16 +106,16 @@ class Tristatecr_Listing_Cpt_Menus{
         add_settings_section('tristate_cr_settings_section', 'API Settings', array($this, 'trs_settings_section_callback'), 'tristate_cr_settings');
 
         // Add fields for Google Maps API key
-        add_settings_field('google_maps_api_key', 'Google Maps API Key', array($this, 'trs_google_maps_api_key_callback'), 'tristate_cr_settings', 'tristate_cr_settings_section');
+        add_settings_field('google_maps_api_key', 'Google Maps API Key:', array($this, 'trs_google_maps_api_key_callback'), 'tristate_cr_settings', 'tristate_cr_settings_section');
 
         // Add fields for Buildout API key
-        add_settings_field('buildout_api_key', 'Buildout API Key', array($this, 'trs_buildout_api_key_callback'), 'tristate_cr_settings', 'tristate_cr_settings_section');
+        add_settings_field('buildout_api_key', 'Buildout API Key:', array($this, 'trs_buildout_api_key_callback'), 'tristate_cr_settings', 'tristate_cr_settings_section');
 
         // Add fields for Buildout API URL for properties
-        add_settings_field('buildout_api_url_properties', 'Buildout API URL for Properties', array($this, 'trs_buildout_api_url_properties_callback'), 'tristate_cr_settings', 'tristate_cr_settings_section');
+        add_settings_field('buildout_api_url_properties', 'Buildout API URL for Properties:', array($this, 'trs_buildout_api_url_properties_callback'), 'tristate_cr_settings', 'tristate_cr_settings_section');
 
         // Add fields for Buildout API URL for brokers
-        add_settings_field('buildout_api_url_brokers', 'Buildout API URL for Brokers', array($this, 'trs_buildout_api_url_brokers_callback'), 'tristate_cr_settings', 'tristate_cr_settings_section');
+        add_settings_field('buildout_api_url_brokers', 'Buildout API URL for Brokers:', array($this, 'trs_buildout_api_url_brokers_callback'), 'tristate_cr_settings', 'tristate_cr_settings_section');
     }
 
     /**

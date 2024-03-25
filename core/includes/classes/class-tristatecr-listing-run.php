@@ -72,7 +72,8 @@ class Tristatecr_Listing_Run{
 	
 		add_action( 'plugin_action_links_' . TRISTATECRLISTING_PLUGIN_BASE, array( $this, 'add_plugin_action_link' ), 20 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_backend_scripts_and_styles' ), 20 );
-		add_action( 'admin_bar_menu', array( $this, 'add_admin_bar_menu_items' ), 100, 1 );
+		// add_action( 'admin_bar_menu', array( $this, 'add_admin_bar_menu_items' ), 100, 1 );
+		add_shortcode( 'trisate_cr_filter', array( $this, 'tristate_cr_filter_shorcode') );
 	
 	}
 
@@ -96,7 +97,7 @@ class Tristatecr_Listing_Run{
 	*/
 	public function add_plugin_action_link( $links ) {
 
-		$links['our_shop'] = sprintf( '<a href="%s" title="Custom Link" style="font-weight:700;">%s</a>', 'https://test.test', __( 'Custom Link', 'tristatecr-listing' ) );
+		$links['our_shop'] = sprintf( '<a href="%s" title="Github Link" style="font-weight:700;">%s</a>', 'https://github.com/code-pixelz-media/tristatecr-listing', __( 'Plugin Link', 'tristatecr-listing' ) );
 
 		return $links;
 	}
@@ -165,5 +166,9 @@ class Tristatecr_Listing_Run{
 		));
 
 	}
+	
+	public function tristate_cr_filter_shorcode(){
+	    return '<div id="filter-wrapper"></div>';
+	  }
 
 }

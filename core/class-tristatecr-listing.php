@@ -62,7 +62,7 @@ if ( ! class_exists( 'Tristatecr_Listing' ) ) :
 		 *
 		 * @access	public
 		 * @since	1.0.0
-		 * @var		object|Tristatecr_Listing_Posttypes
+		 * @var		object|Tristatecr_Listing_Cpt_Menus
 		 */
 		public $cpt_menus;
 

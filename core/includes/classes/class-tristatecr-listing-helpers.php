@@ -56,5 +56,8 @@ class Tristatecr_Listing_Helpers{
 	  public function get_settings(){
 	  
 	  }
+	  
+	  
+
 
 }

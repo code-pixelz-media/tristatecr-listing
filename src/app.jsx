@@ -23,18 +23,19 @@ export function App() {
  
 
   return (
-    <>
+   
      
-      <div className=''>
-      <h1>Select Agents</h1>
-      <Select
-          closeMenuOnSelect={false}
-          components={animatedComponents}
-          isMulti
-          options={colourOptions}
-      />
-      </div>
+    <div className=''>
+        <input type='text' placeholder='search'/>
+        <h1>Select Agents</h1>
+        <Select
+        closeMenuOnSelect={false}
+        components={animatedComponents}
+        isMulti
+        options={colourOptions}
+        />
+    </div>
      
-    </>
+   
   )
 }

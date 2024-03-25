@@ -64,35 +64,27 @@ define( 'TRISTATECRLISTING_PLUGIN_URL',	plugin_dir_url( TRISTATECRLISTING_PLUGIN
 /**
  * Load the main class for the core functionality
  */
-// require_once TRISTATECRLISTING_PLUGIN_DIR . 'core/class-tristatecr-listing.php';
+require_once TRISTATECRLISTING_PLUGIN_DIR . 'core/class-tristatecr-listing.php';
 
-// /**
-//  * The main function to load the only instance
-//  * of our master class.
-//  *
-//  * @author  CodePixelz
-//  * @since   1.0.0
-//  * @return  object|Tristatecr_Listing
-//  */
-// function TRISTATECRLISTING() {
-// 	return Tristatecr_Listing::instance();
-// }
+/**
+ * The main function to load the only instance
+ * of our master class.
+ *
+ * @author  CodePixelz
+ * @since   1.0.0
+ * @return  object|Tristatecr_Listing
+ */
+function TRISTATECRLISTING() {
+	return Tristatecr_Listing::instance();
+}
 
-// TRISTATECRLISTING();
+TRISTATECRLISTING();
 
-// add_action("wp_enqueue_scripts", "myscripts");
-// function myscripts() { 
-//     wp_register_script('tristatecr-frontend', 
-//                         get_template_directory_uri() .'/myscript.js',   //
-//                         array ('jquery', 'jquery-ui'),					//depends on these, however, they are registered by core already, so no need to enqueue them.
-//                         false, false);
-//     wp_enqueue_script('myfirstscript');
-     
-// }
+
 
 function my_theme_scripts() {
 
-    wp_register_script('tristatecr-script', plugin_dir_url(__FILE__) . 'dist/assets/index-BGB60N9l.js', array('jquery'), '1.0.0', true);
+    wp_register_script('tristatecr-script', plugin_dir_url(__FILE__) . 'dist/main-script.js', array('jquery'), time(), true);
 	wp_enqueue_script('tristatecr-script');
 }
 add_action('wp_enqueue_scripts', 'my_theme_scripts');

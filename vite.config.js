@@ -3,5 +3,16 @@ import preact from '@preact/preset-vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+
   plugins: [preact()],
+  build: {
+    rollupOptions: {
+      // Change the output file name to 'main-script.js'
+      output: {
+        entryFileNames: 'main-script.js',
+        chunkFileNames: '[name]-[hash].js',
+        assetFileNames: '[name]-[hash].[ext]'
+      }
+    }
+  }
 })

@@ -1,29 +1,39 @@
 import { useState } from 'preact/hooks';
-import { MultiSelect } from "react-multi-select-component";
-import './app.css'
+import './app.css';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
-const options = [
-  { label: "Akinya", value: "akinya" },
-  { label: "John Doe", value: "john-doe" },
-  { label: "kandel", value: "kandel-test", disabled: true },
+
+const  colourOptions = [
+  { value: 'ocean', label: 'Oceanic', color: '#00B8D9', isFixed: true },
+  { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
+  { value: 'purple', label: 'Purple', color: '#5243AA' },
+  { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
+  { value: 'orange', label: 'Orange', color: '#FF8B00' },
+  { value: 'yellow', label: 'Yellow', color: '#FFC400' },
+  { value: 'green', label: 'Green', color: '#36B37E' },
+  { value: 'forest', label: 'Forest', color: '#00875A' },
+  { value: 'slate', label: 'Slate', color: '#253858' },
+  { value: 'silver', label: 'Silver', color: '#666666' },
 ];
 
+const animatedComponents = makeAnimated();
+
 export function App() {
-  const [selected, setSelected] = useState([]);
+ 
 
   return (
     <>
      
-      <div>
+      <div className=''>
       <h1>Select Agents</h1>
-      
-      <MultiSelect
-        options={options}
-        value={selected}
-        onChange={setSelected}
-        labelledBy="Select"
+      <Select
+          closeMenuOnSelect={false}
+          components={animatedComponents}
+          isMulti
+          options={colourOptions}
       />
-    </div>
+      </div>
      
     </>
   )

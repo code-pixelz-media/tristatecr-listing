@@ -52,5 +52,9 @@ class Tristatecr_Listing_Helpers{
 	 /**
 	  * HELPER COMMENT END
 	  */
+	  
+	  public function get_settings(){
+	  
+	  }
 
 }

@@ -56,6 +56,15 @@ if ( ! class_exists( 'Tristatecr_Listing' ) ) :
 		 * @var		object|Tristatecr_Listing_Settings
 		 */
 		public $settings;
+		
+		/**
+		 * TRISTATECRLISTING Custom post type object.
+		 *
+		 * @access	public
+		 * @since	1.0.0
+		 * @var		object|Tristatecr_Listing_Posttypes
+		 */
+		public $cpt_menus;
 
 		/**
 		 * Throw error on object clone.
@@ -99,7 +108,7 @@ if ( ! class_exists( 'Tristatecr_Listing' ) ) :
 				self::$instance->includes();
 				self::$instance->helpers		= new Tristatecr_Listing_Helpers();
 				self::$instance->settings		= new Tristatecr_Listing_Settings();
-
+				self::$instance->posttypes		= new Tristatecr_Listing_Cpt_Menus();
 				//Fire the plugin logic
 				new Tristatecr_Listing_Run();
 
@@ -123,8 +132,9 @@ if ( ! class_exists( 'Tristatecr_Listing' ) ) :
 		private function includes() {
 			require_once TRISTATECRLISTING_PLUGIN_DIR . 'core/includes/classes/class-tristatecr-listing-helpers.php';
 			require_once TRISTATECRLISTING_PLUGIN_DIR . 'core/includes/classes/class-tristatecr-listing-settings.php';
-
 			require_once TRISTATECRLISTING_PLUGIN_DIR . 'core/includes/classes/class-tristatecr-listing-run.php';
+			require_once TRISTATECRLISTING_PLUGIN_DIR . 'core/includes/classes/class-tristatecr-listing-cpt-menus.php';
+			
 		}
 
 		/**

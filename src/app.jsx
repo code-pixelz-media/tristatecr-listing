@@ -26,8 +26,9 @@ export function App() {
    
      
     <div className=''>
-        <input type='text' placeholder='search'/>
-        <h1>Select Agents</h1>
+        <h1>Listings</h1>
+        <input type='text' placeholder='Filter by text'/>
+        <label>Agent</label>
         <Select
         closeMenuOnSelect={false}
         components={animatedComponents}

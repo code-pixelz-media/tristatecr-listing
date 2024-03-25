@@ -50,10 +50,10 @@ class Tristatecr_Listing_Cpt_Menus{
             'labels'                => $labels,
             'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
             'public'                => true,
-            'menu_icon'             => 'dashicons-location',
+            'menu_icon'             => 'dashicons-admin-multisite',
             'has_archive'           => true,
             'rewrite'               => array( 'slug' => 'listings' ),
-            'menu_position'         => 5,
+            'menu_position'         => 8,
         );
         register_post_type( 'properties', $args );
     }

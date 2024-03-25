@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Class Tristatecr_Listing_Cpt_Menus
  *
@@ -46,12 +46,12 @@ class Tristatecr_Listing_Cpt_Menus{
      */
     public function trs_add_plugin_settings(){
         add_submenu_page(
-            'edit.php?post_type=tsc_property',          
-            'Property Settings',                        
-            'Settings',                          
-            'manage_options',                           
-            'tristate-cr-settings',                     
-            array($this, 'trs_create_admin_page')           
+            'edit.php?post_type=tsc_property',
+            'Property Settings',
+            'Settings',
+            'manage_options',
+            'tristate-cr-settings',
+            array($this, 'trs_create_admin_page')
         );
     }
 
@@ -80,20 +80,11 @@ class Tristatecr_Listing_Cpt_Menus{
      * @since 1.0.0
      */
     public function trs_register_settings() {
-        // Register settings for Google Maps API key
-        register_setting('tristate_cr_settings_group', 'google_maps_api_key');
-
-        // Register settings for Buildout API key
-        register_setting('tristate_cr_settings_group', 'buildout_api_key');
-
-        // Register settings for Buildout API URL for properties
-        register_setting('tristate_cr_settings_group', 'buildout_api_url_properties');
-
-        // Register settings for Buildout API URL for brokers
-        register_setting('tristate_cr_settings_group', 'buildout_api_url_brokers');
+        // Register a single settings group for all fields
+        register_setting('tristate_cr_settings_group', 'tristate_cr_settings', array($this, 'trs_settings_sanitize'));
 
         // Add settings section
-        add_settings_section('tristate_cr_settings_section', 'Property Api Settings', array($this, 'trs_settings_section_callback'), 'tristate_cr_settings');
+        add_settings_section('tristate_cr_settings_section', 'API Settings', array($this, 'trs_settings_section_callback'), 'tristate_cr_settings');
 
         // Add fields for Google Maps API key
         add_settings_field('google_maps_api_key', 'Google Maps API Key', array($this, 'trs_google_maps_api_key_callback'), 'tristate_cr_settings', 'tristate_cr_settings_section');
@@ -106,6 +97,36 @@ class Tristatecr_Listing_Cpt_Menus{
 
         // Add fields for Buildout API URL for brokers
         add_settings_field('buildout_api_url_brokers', 'Buildout API URL for Brokers', array($this, 'trs_buildout_api_url_brokers_callback'), 'tristate_cr_settings', 'tristate_cr_settings_section');
+    }
+
+    /**
+     * Sanitize callback function for settings
+     *
+     * @param $input
+     * @return array
+     * @since 1.0.0
+     */
+    public function trs_settings_sanitize($input) {
+        $sanitized_input = array();
+
+        // Sanitize each input field
+        if (isset($input['google_maps_api_key'])) {
+            $sanitized_input['google_maps_api_key'] = sanitize_text_field($input['google_maps_api_key']);
+        }
+
+        if (isset($input['buildout_api_key'])) {
+            $sanitized_input['buildout_api_key'] = sanitize_text_field($input['buildout_api_key']);
+        }
+
+        if (isset($input['buildout_api_url_properties'])) {
+            $sanitized_input['buildout_api_url_properties'] = esc_url_raw($input['buildout_api_url_properties']);
+        }
+
+        if (isset($input['buildout_api_url_brokers'])) {
+            $sanitized_input['buildout_api_url_brokers'] = esc_url_raw($input['buildout_api_url_brokers']);
+        }
+
+        return $sanitized_input;
     }
 
     /**
@@ -123,8 +144,9 @@ class Tristatecr_Listing_Cpt_Menus{
      * @since 1.0.0
      */
     public function trs_google_maps_api_key_callback(){
-        $google_maps_api_key = get_option('google_maps_api_key');
-        echo '<input type="text" name="google_maps_api_key" value="' . esc_attr($google_maps_api_key) . '" />';
+        $settings = get_option('tristate_cr_settings');
+        $google_maps_api_key = isset($settings['google_maps_api_key']) ? $settings['google_maps_api_key'] : '';
+        echo '<input type="url" class="regular-text" name="tristate_cr_settings[google_maps_api_key]" value="' . esc_attr($google_maps_api_key) . '" />';
     }
 
     /**
@@ -133,8 +155,9 @@ class Tristatecr_Listing_Cpt_Menus{
      * @since 1.0.0
      */
     public function trs_buildout_api_key_callback(){
-        $buildout_api_key = get_option('buildout_api_key');
-        echo '<input type="text" name="buildout_api_key" value="' . esc_attr($buildout_api_key) . '" />';
+        $settings = get_option('tristate_cr_settings');
+        $buildout_api_key = isset($settings['buildout_api_key']) ? $settings['buildout_api_key'] : '';
+        echo '<input type="url" class="regular-text" name="tristate_cr_settings[buildout_api_key]" value="' . esc_attr($buildout_api_key) . '" />';
     }
 
     /**
@@ -143,19 +166,21 @@ class Tristatecr_Listing_Cpt_Menus{
      * @since 1.0.0
      */
     public function trs_buildout_api_url_properties_callback(){
-        $buildout_api_url_properties = get_option('buildout_api_url_properties');
-        echo '<input type="text" name="buildout_api_url_properties" value="' . esc_attr($buildout_api_url_properties) . '" />';
+        $settings = get_option('tristate_cr_settings');
+        $buildout_api_url_properties = isset($settings['buildout_api_url_properties']) ? $settings['buildout_api_url_properties'] : '';
+        echo '<input type="url" class="regular-text" name="tristate_cr_settings[buildout_api_url_properties]" value="' . esc_attr($buildout_api_url_properties) . '" />';
     }
-
+    
     /**
      * Callback function for Buildout API URL for Brokers field
      *
      * @since 1.0.0
      */
     public function trs_buildout_api_url_brokers_callback(){
-        $buildout_api_url_brokers = get_option('buildout_api_url_brokers');
-        echo '<input type="text" name="buildout_api_url_brokers" value="' . esc_attr($buildout_api_url_brokers) . '" />';
+        $settings = get_option('tristate_cr_settings');
+        $buildout_api_url_brokers = isset($settings['buildout_api_url_brokers']) ? $settings['buildout_api_url_brokers'] : '';
+        echo '<input type="text" class="regular-text" name="tristate_cr_settings[buildout_api_url_brokers]" value="' . esc_attr($buildout_api_url_brokers) . '" />';
     }
 
 }
-?>
+

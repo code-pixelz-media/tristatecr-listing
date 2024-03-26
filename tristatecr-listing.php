@@ -81,16 +81,3 @@ function TRISTATECRLISTING() {
 TRISTATECRLISTING();
 
 
-
-function my_theme_scripts() {
-
-    wp_register_script('tristatecr-script', plugin_dir_url(__FILE__) . 'dist/main-script.js', array('jquery'), time(), true);
-	wp_enqueue_script('tristatecr-script');
-}
-add_action('wp_enqueue_scripts', 'my_theme_scripts');
-
-function filter_wrapper_shortcode() {
-    return '<div id="filter-wrapper"></div>';
-}
-add_shortcode('filter_wrapper', 'filter_wrapper_shortcode');
-

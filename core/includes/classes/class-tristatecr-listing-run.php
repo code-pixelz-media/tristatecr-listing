@@ -73,8 +73,8 @@ class Tristatecr_Listing_Run{
 		add_action( 'plugin_action_links_' . TRISTATECRLISTING_PLUGIN_BASE, array( $this, 'add_plugin_action_link' ), 20 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_backend_scripts_and_styles' ), 20 );
 		// add_action( 'admin_bar_menu', array( $this, 'add_admin_bar_menu_items' ), 100, 1 );
-		add_shortcode( 'trisate_cr_filter', array( $this, 'tristate_cr_filter_shorcode') );
-	
+		add_shortcode( 'trisate_cr_filter', array( $this, 'tristate_cr_filter_shortcode') );
+		add_action( 'wp_enqueue_scripts', array($this , 'tristate_cr_frontend_scripts') );
 	}
 
 	/**
@@ -112,12 +112,26 @@ class Tristatecr_Listing_Run{
 	 * @return	void
 	 */
 	public function enqueue_backend_scripts_and_styles() {
-		wp_enqueue_style( 'tristatecrlisting-backend-styles', TRISTATECRLISTING_PLUGIN_URL . 'core/includes/assets/css/backend-styles.css', array(), TRISTATECRLISTING_VERSION, 'all' );
-		wp_enqueue_script( 'tristatecrlisting-backend-scripts', TRISTATECRLISTING_PLUGIN_URL . 'core/includes/assets/js/backend-scripts.js', array(), TRISTATECRLISTING_VERSION, false );
-		wp_localize_script( 'tristatecrlisting-backend-scripts', 'tristatecrlisting', array(
-			'plugin_name'   	=> __( TRISTATECRLISTING_NAME, 'tristatecr-listing' ),
-		));
+		// wp_enqueue_style( 'tristatecrlisting-backend-styles', TRISTATECRLISTING_PLUGIN_URL . 'core/includes/assets/css/backend-styles.css', array(), TRISTATECRLISTING_VERSION, 'all' );
+		// wp_enqueue_script( 'tristatecrlisting-backend-scripts', TRISTATECRLISTING_PLUGIN_URL . 'core/includes/assets/js/backend-scripts.js', array(), TRISTATECRLISTING_VERSION, false );
+		// wp_localize_script( 'tristatecrlisting-backend-scripts', 'tristatecrlisting', array(
+		// 	'plugin_name'   	=> __( TRISTATECRLISTING_NAME, 'tristatecr-listing' ),
+		// ));
 	}
+	/**
+	 * Enqueue the frontend related scripts and styles for this plugin.
+	 *
+	 * @access	public
+	 * @since	1.0.0
+	 *
+	 * @return	void
+	 */
+	 
+	 public function tristate_cr_frontend_scripts(){
+	 
+		wp_register_script('tristatecr-frontend-script', TRISTATECRLISTING_PLUGIN_URL . 'dist/main-script.js', array('jquery'), TRISTATECRLISTING_VERSION , true);
+	    
+	 }
 
 	/**
 	 * Add a new menu item to the WordPress topbar
@@ -166,9 +180,21 @@ class Tristatecr_Listing_Run{
 		));
 
 	}
-	
-	public function tristate_cr_filter_shorcode(){
+
+	/**
+	 * Adds a shortcode for tristate
+	 *
+	 * @access	public
+	 * @since	1.0.0
+	 *
+	 *
+	 * @return	string
+	 */	
+	public function tristate_cr_filter_shortcode(){
+		wp_enqueue_script('tristatecr-frontend-script');
 	    return '<div id="filter-wrapper"></div>';
+	    
+	    
 	  }
 
 }

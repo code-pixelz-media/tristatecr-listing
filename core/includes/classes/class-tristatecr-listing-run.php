@@ -157,15 +157,15 @@ class Tristatecr_Listing_Run{
 			'id'		=> 'tristatecr-listing-id', // The ID of the node.
 			'title'		=> __( 'Demo Menu Item', 'tristatecr-listing' ), // The text that will be visible in the Toolbar. Including html tags is allowed.
 			'parent'	=> false, // The ID of the parent node.
-			'href'		=> '#', // The ‘href’ attribute for the link. If ‘href’ is not set the node will be a text node.
-			'group'		=> false, // This will make the node a group (node) if set to ‘true’. Group nodes are not visible in the Toolbar, but nodes added to it are.
+			'href'		=> '#', // The 'href' attribute for the link. If 'href' is not set the node will be a text node.
+			'group'		=> false, // This will make the node a group (node) if set to 'true'. Group nodes are not visible in the Toolbar, but nodes added to it are.
 			'meta'		=> array(
 				'title'		=> __( 'Demo Menu Item', 'tristatecr-listing' ), // The title attribute. Will be set to the link or to a div containing a text node.
-				'target'	=> '_blank', // The target attribute for the link. This will only be set if the ‘href’ argument is present.
+				'target'	=> '_blank', // The target attribute for the link. This will only be set if the 'href' argument is present.
 				'class'		=> 'tristatecr-listing-class', // The class attribute for the list item containing the link or text node.
 				'html'		=> false, // The html used for the node.
 				'rel'		=> false, // The rel attribute.
-				'onclick'	=> false, // The onclick attribute for the link. This will only be set if the ‘href’ argument is present.
+				'onclick'	=> false, // The onclick attribute for the link. This will only be set if the 'href' argument is present.
 				'tabindex'	=> false, // The tabindex attribute. Will be set to the link or to a div containing a text node.
 			),
 		));

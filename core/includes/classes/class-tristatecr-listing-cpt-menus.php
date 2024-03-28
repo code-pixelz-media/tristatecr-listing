@@ -70,7 +70,7 @@ class Tristatecr_Listing_Cpt_Menus{
 			'supports' 			=> array( 'title', 'author', 'custom-fields' ),
 	    );
 	    
-	    register_post_type( 'tsc_search', $args );
+	    register_post_type( 'properties_search', $args );
     }
 
     /**

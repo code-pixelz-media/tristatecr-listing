@@ -1,42 +1,44 @@
-import { useState } from 'preact/hooks';
 import './app.css';
-import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
+import InputTextField from './Components/textfield';
+import Multiselect from './Components/multiselect';
+import MinimumDistanceSlider from './Components/rangeslider';
+import TristateButton from './Components/button';
+import React, { useState } from 'react';
+
+export function App(props) {
+  const inputplaceholder = "Filter by text ...";
+  const buttontext = "Reset Filter";
+  const colourOptions = [
+    'All',
+    'Avi Akiav',
+    'Avrum Deutsch',
+    'Dov Bleich',
+    'Duvv Biller',
+    'Eddie Keda',
+    'Elya Akiva',
+  ].map(option => ({ value: option.toLowerCase(), label: option }));
+// Define constants for slider values
+const minValue = 10000;
+const maxValue = 25000;
+
+  const [sliderValue, setSliderValue] = useState([minValue, maxValue]); 
+  const initialvalue = 0;
+  const maxSliderValue = 45000; 
 
 
-const  colourOptions = [
-  { value: 'ocean', label: 'Oceanic', color: '#00B8D9', isFixed: true },
-  { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
-  { value: 'purple', label: 'Purple', color: '#5243AA' },
-  { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
-  { value: 'orange', label: 'Orange', color: '#FF8B00' },
-  { value: 'yellow', label: 'Yellow', color: '#FFC400' },
-  { value: 'green', label: 'Green', color: '#36B37E' },
-  { value: 'forest', label: 'Forest', color: '#00875A' },
-  { value: 'slate', label: 'Slate', color: '#253858' },
-  { value: 'silver', label: 'Silver', color: '#666666' },
-];
-
-const animatedComponents = makeAnimated();
-
-export function App() {
- 
+  const handleSliderChange = (newValue) => {
+    setSliderValue(newValue);
+  };
 
   return (
-   
-     
     <div className=''>
-        <h1>Listings</h1>
-        <input type='text' placeholder='Filter by text'/>
-        <label>Agent</label>
-        <Select
-        closeMenuOnSelect={false}
-        components={animatedComponents}
-        isMulti
-        options={colourOptions}
-        />
+      <h1>Listings</h1>
+      <InputTextField inputplaceholder={inputplaceholder} />
+      <Multiselect colourOptions={colourOptions} />
+      <MinimumDistanceSlider value={sliderValue} onChange={handleSliderChange} max={maxSliderValue} />
+      <span>{initialvalue}</span>
+      <span>{maxSliderValue}</span>
+      <TristateButton buttontext={buttontext}/>
     </div>
-     
-   
-  )
+  );
 }

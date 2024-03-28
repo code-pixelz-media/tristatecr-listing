@@ -10,7 +10,7 @@ export default defineConfig({
       output: {
         entryFileNames: 'main-script.js',
         chunkFileNames: '[name]-[hash].js',
-        assetFileNames: '[name]-[hash].[ext]'
+        assetFileNames: 'main-style.css'
       }
     }
   }

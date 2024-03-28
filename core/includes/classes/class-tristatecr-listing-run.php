@@ -75,6 +75,9 @@ class Tristatecr_Listing_Run{
 		// add_action( 'admin_bar_menu', array( $this, 'add_admin_bar_menu_items' ), 100, 1 );
 		add_shortcode( 'trisate_cr_filter', array( $this, 'tristate_cr_filter_shortcode') );
 		add_action( 'wp_enqueue_scripts', array($this , 'tristate_cr_frontend_scripts') );
+		add_action( 'wp_enqueue_scripts', array($this , 'tristate_cr_frontend_styles') );
+
+	
 	}
 
 	/**
@@ -130,6 +133,11 @@ class Tristatecr_Listing_Run{
 	 public function tristate_cr_frontend_scripts(){
 	 
 		wp_register_script('tristatecr-frontend-script', TRISTATECRLISTING_PLUGIN_URL . 'dist/main-script.js', array('jquery'), TRISTATECRLISTING_VERSION , true);
+	    
+	 }
+	 public function tristate_cr_frontend_styles(){
+	 
+		wp_register_style('tristatecr-frontend-style', TRISTATECRLISTING_PLUGIN_URL . 'dist/main-style.css', array(), TRISTATECRLISTING_VERSION );
 	    
 	 }
 
@@ -191,6 +199,7 @@ class Tristatecr_Listing_Run{
 	 * @return	string
 	 */	
 	public function tristate_cr_filter_shortcode(){
+		wp_enqueue_style('tristatecr-frontend-style');
 		wp_enqueue_script('tristatecr-frontend-script');
 	    return '<div id="filter-wrapper"></div>';
 	    

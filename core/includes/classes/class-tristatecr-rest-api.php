@@ -66,7 +66,7 @@ class Tristatecr_Listing_Api
                 'price_sf' 		=> get_post_meta( $ID, '_gsheet_price_sf', true ),
                 'commission' 	=> get_post_meta( $ID, '_gsheet_commission', true ) 
             );
-            $_use 						= get_post_meta( $ID, '_gsheet_use', true );
+            $_use 			= get_post_meta( $ID, '_gsheet_use', true );
             $_type 						= get_post_meta( $ID, '_gsheet_listing_type', true );
             $_price_sf 				= get_post_meta( $ID, '_gsheet_price_sf', true );
             $_price_sf 				= preg_replace( '/\.[0-9]+/', '', $_price_sf );

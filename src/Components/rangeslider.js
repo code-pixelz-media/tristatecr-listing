@@ -9,6 +9,7 @@ function valuetext(value) {
 const minDistance = 10;
 
 export default function MinimumDistanceSlider(props) {
+  const { selectlabel } = props;
   const { value, onChange, max } = props;
 
   const handleChange = (event, newValue, activeThumb) => {
@@ -31,6 +32,7 @@ export default function MinimumDistanceSlider(props) {
 
   return (
     <Box sx={{ width: 100+'%' }}>
+      <label>{selectlabel}</label>
       <Slider
         getAriaLabel={() => 'Minimum distance'}
         value={value}

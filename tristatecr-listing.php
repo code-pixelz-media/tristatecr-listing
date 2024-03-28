@@ -61,6 +61,8 @@ define( 'TRISTATECRLISTING_PLUGIN_DIR',	plugin_dir_path( TRISTATECRLISTING_PLUGI
 // Plugin Folder URL
 define( 'TRISTATECRLISTING_PLUGIN_URL',	plugin_dir_url( TRISTATECRLISTING_PLUGIN_FILE ) );
 
+
+
 /**
  * Load the main class for the core functionality
  */
@@ -79,5 +81,4 @@ function TRISTATECRLISTING() {
 }
 
 TRISTATECRLISTING();
-
 

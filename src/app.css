@@ -1,5 +1,7 @@
+<<<<<<< Updated upstream
 #tristate-input {
   width: 100% !important;
+<<<<<<< HEAD
 }
 #filter-wrapper .MuiBox-root {
   gap: 10px;
@@ -7,4 +9,10 @@
 .price-range-btm {
   display: flex;
   justify-content: space-between;
+=======
+=======
+#body{
+    margin: 10px;
+>>>>>>> Stashed changes
+>>>>>>> adf80dcb9771f08b0a72effccffc0eb0319b6a85
 }

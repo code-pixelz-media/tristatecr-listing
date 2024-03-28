@@ -4,7 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+<<<<<<< Updated upstream
     "dev": "vite build  && vite",
+=======
+    "dev": "vite build && vite",
+>>>>>>> Stashed changes
     "build": "vite build",
     "preview": "vite preview"
   },

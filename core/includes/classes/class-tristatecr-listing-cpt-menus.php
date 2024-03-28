@@ -66,7 +66,7 @@ class Tristatecr_Listing_Cpt_Menus{
 			'has_archive' 	=> false,
 			'rewrite' 			=> array( 'slug' => 'searches' ),
 			'menu_position' => 5,
-			'show_in_menu' 	=> 'edit.php?post_type=tsc_property',
+			'show_in_menu' 	=> 'edit.php?post_type=properties',
 			'supports' 			=> array( 'title', 'author', 'custom-fields' ),
 	    );
 	    

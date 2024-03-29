@@ -4,11 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-<<<<<<< Updated upstream
     "dev": "vite build  && vite",
-=======
-    "dev": "vite build && vite",
->>>>>>> Stashed changes
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -16,7 +12,8 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.14",
-    "preact": "^10.19.6"
+    "preact": "^10.19.6",
+    "react-iframe": "^1.8.5"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.8.1",

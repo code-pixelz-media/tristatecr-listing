@@ -7,7 +7,7 @@ export default function TristateButton(props) {
     <Box sx={{ '& button': { m: 1 } }}>
       
       <div>
-        <Button variant="contained" size="medium"> {buttontext} </Button> 
+        <Button variant="contained" size="medium"> {buttontext} </Button>
       </div>
     </Box>
   );

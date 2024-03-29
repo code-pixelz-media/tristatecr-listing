@@ -3,11 +3,11 @@ import MinimumDistanceSlider from '../Components/rangeslider';
 
 import React, { useState } from 'react';
 
-export function Price(props) {
-  const selectlabel = "Price";
+export function Rent(props) {
+  const selectlabel = "Rent";
 // Define constants for slider values
-const minValue = 1200000;
-const maxValue = 15000000;
+const minValue = 11890000;
+const maxValue = 28000000;
 
   const [sliderValue, setSliderValue] = useState([minValue, maxValue]); 
   const initialvalue = 0;

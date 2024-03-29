@@ -1,9 +1,1 @@
-<<<<<<< HEAD
-#tristate-input{width:100%!important}#filter-wrapper .MuiBox-root{gap:10px}.price-range-btm{display:flex;justify-content:space-between}
-=======
-<<<<<<< Updated upstream
-#tristate-input{width:100%!important}
-=======
-#body{margin:10px}
->>>>>>> Stashed changes
->>>>>>> adf80dcb9771f08b0a72effccffc0eb0319b6a85
+:root{--colorwhite: #fff;--colorblack: #000;--colorblue: #1a76d2;--colorgreen: #00bf7a;--colorred: #ff4d4d;--coloryellow: #EEBF47;--bg-ligt: #f9f9f9}.bg-green{background:var(--colorgreen)!important}.bg-blue{background:var(--colorblue)!important}.bg-red{background:var(--colorred)!important}.bg-yellow{background:var(--coloryellow)!important}#tristate-input{width:100%!important}#filter-wrapper .MuiBox-root{gap:5px}.price-range-btm{display:flex;justify-content:space-between;gap:8px!important}.left-content{width:33.33%;background:var(--bg-ligt);position:sticky;position:-webkit-sticky;top:0}.Filterform button{margin:0!important}.Filterform label{font-weight:700}.Filterform input[type=text]{padding:5px 8px}.right-content{width:66.66%}.right-content iframe{border:0;border-radius:4px}ul{list-style:none;padding:0;margin:0}.ul-buttons{display:flex;gap:5px}.ul-buttons li{background:var(--colorblue);padding:4px 12px;border-radius:4px;color:var(--colorwhite);font-size:14px}.ul-content li{line-height:28px}.ul-content li p{margin:0}ul.ul-features li span{font-weight:700}.property-list-wrapper{margin:20px 0}.propertylisting-content h2{font-size:24px;font-weight:700;margin:0;line-height:32px}.propertylisting-content h4{font-size:22px;margin:0}p.price{font-weight:700;font-size:28px}

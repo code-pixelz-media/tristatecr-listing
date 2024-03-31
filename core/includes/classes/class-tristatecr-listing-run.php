@@ -72,7 +72,6 @@ class Tristatecr_Listing_Run{
 	
 		add_action( 'plugin_action_links_' . TRISTATECRLISTING_PLUGIN_BASE, array( $this, 'add_plugin_action_link' ), 20 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_backend_scripts_and_styles' ), 20 );
-		// add_action( 'admin_bar_menu', array( $this, 'add_admin_bar_menu_items' ), 100, 1 );
 		add_shortcode( 'trisate_cr_filter', array( $this, 'tristate_cr_filter_shortcode') );
 		add_action( 'wp_enqueue_scripts', array($this , 'tristate_cr_frontend_scripts') );
 		add_action( 'wp_enqueue_scripts', array($this , 'tristate_cr_frontend_styles') );
@@ -202,7 +201,6 @@ class Tristatecr_Listing_Run{
 		wp_enqueue_style('tristatecr-frontend-style');
 		wp_enqueue_script('tristatecr-frontend-script');
 	    return '<div id="filter-wrapper"></div>';
-	    
 	    
 	  }
 

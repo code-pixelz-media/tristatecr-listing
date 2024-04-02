@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
   --colorwhite : #fff;
   --colorblack: #000;
@@ -6,6 +7,10 @@
   --colorred: #ff4d4d;
   --coloryellow: #EEBF47;
   --bg-ligt: #f9f9f9;
+}
+* {
+  margin: 0;
+  padding: 0;
 }
 .bg-green {
   background: var(--colorgreen) !important;
@@ -19,12 +24,22 @@
 .bg-yellow {
   background: var(--coloryellow) !important;
 }
+.color-white {
+color: var(--colorwhite) !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+}
 #tristate-input {
   width: 100% !important;
 
 }
 #filter-wrapper .MuiBox-root {
-  gap: 5px;
+  gap: 15px;
+}
+#filter-wrapper .Filterform .MuiBox-root {
+  gap: 8px;
+  padding: 5px;
 }
 .price-range-btm {
   display: flex;
@@ -37,16 +52,51 @@
   position: sticky;
   position: -webkit-sticky;
   top: 0px;
-  /* height: 100vh; */
+  height: 100vh;
+}
+#filter-wrapper .Filterform > .MuiBox-root {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: calc(100vh - 20px);
+  justify-content: space-around;
+
 }
 .Filterform button {
   margin: 0 !important;
 }
 .Filterform label {
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
 }
 .Filterform input[type=text] {
-  padding: 5px 8px;
+  padding: 2px 8px;
+}
+.Filterform .css-13cymwt-control {
+  /* max-height: 25px;*/
+  min-height: 25px; 
+}
+.Filterform .css-13cymwt-control > div {
+  padding: 0;
+}
+.Filterform .css-1y7rh0y-MultiValueGeneric2 {
+  padding: 1px;
+}
+.Filterform .multi-select .css-1xc3v61-indicatorContainer {
+padding: 0 8px;
+}
+.Filterform .css-1u9des2-indicatorSeparator {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.Filterform .multi-select .css-w9q2zk-Input2 {
+padding: 0;
+margin: 0;
+}
+.Filterform .MuiSlider-root {
+  padding: 5px 0;
 }
 .right-content {
   width: 66.66%;
@@ -85,6 +135,12 @@ ul.ul-features li span{
 .property-list-wrapper {
   margin: 20px 0;
 }
+.property-filter-wrapper {
+  flex-wrap: wrap;
+}
+.propertylisting-content {
+  width: 30.33%;
+}
 .propertylisting-content h2{
   font-size: 24px;
   font-weight: bold;
@@ -98,4 +154,39 @@ ul.ul-features li span{
 p.price {
   font-weight: bold;
   font-size: 28px;
+}
+.mobile-search-icon {
+  display: none !important;
+}
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+  .left-content {
+    display: none;
+  }
+  .right-content {
+    width: 100%;
+    padding: 20px;
+  }
+  .css-q3wz5s-MuiStack-root {
+    gap: 8px;
+    display: flex;
+    flex-direction: column !important;
+}
+.mobile-search-icon {
+  display: block !important;
+  min-width: auto !important;
+    position: fixed !important;
+    z-index: 99999;
+    right: 0;
+    top: 50px;
+}
+.mobile-search-icon  .MuiButton-icon {
+  margin-left: 0;
+  line-height: 1;
+}
+.mobile-drawer .MuiPaper-root {
+  width: 100%;
+}
+.propertylisting-content {
+  width: 100%;
+}
 }

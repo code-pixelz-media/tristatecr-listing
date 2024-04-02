@@ -1,4 +1,3 @@
-import '../app.css';
 import MinimumDistanceSlider from '../Components/rangeslider';
 
 import React, { useState } from 'react';

@@ -18,6 +18,7 @@ import Box from '@mui/material/Box';
 export function FilterForm(props) {
   const inputplaceholder = "Filter by text ...";
   const buttontext = "Clear Filter";
+  const buttoncolor = "bg-red";
   
   return (
     <div className='Filterform'>
@@ -36,7 +37,7 @@ export function FilterForm(props) {
       <Rent />
       <div className='price-range-btm'>
       <Savebtn />
-      <TristateButton buttontext={buttontext}/>
+      <TristateButton buttoncolor={buttoncolor} buttontext={buttontext}/>
       </div>
       </Box>
     </div>

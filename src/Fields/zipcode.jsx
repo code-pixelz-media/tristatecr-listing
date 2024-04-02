@@ -1,4 +1,3 @@
-import '../app.css';
 import Multiselect from '../Components/multiselect';
 
 export function Zipcode (props) {

@@ -10,6 +10,7 @@ export default function Multiselect(props) {
     <>
       <label>{selectlabel}</label>
       <Select
+      className='multi-select'
         closeMenuOnSelect={false}
         components={animatedComponents}
         isMulti

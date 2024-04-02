@@ -1,4 +1,4 @@
-import '../app.css';
+
 import Multiselect from '../Components/multiselect';
 
 export function Neighborhoods (props) {

@@ -6,7 +6,7 @@ export function PropertyListing(props) {
   return (
     <div className='property-list-wrapper'>
     <Box>
-      <Stack spacing={{ xs: 1, sm: 3 }} direction="row" useFlexGap >
+      <Stack spacing={{ xs: 1, sm: 3 }} direction="row" useFlexGap className='property-filter' >
       <PropertyListingComp />
       <PropertyListingComp />
       <PropertyListingComp />

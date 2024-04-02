@@ -1,0 +1,10 @@
+$mycolor: red;
+$mycolorblack: #000;
+
+.propertylisting-content {
+  color: $mycolorblack;
+}
+
+.propertylisting-content h2 {
+  color: $mycolor;
+}

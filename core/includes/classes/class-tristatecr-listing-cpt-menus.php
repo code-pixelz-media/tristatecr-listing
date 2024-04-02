@@ -28,7 +28,7 @@ class Tristatecr_Listing_Cpt_Menus{
      * @since 1.0.0
      */
     public function trs_register_custom_post_type(){
-        $labels = array(
+        $properties_labels = array(
             'name'                  => _x( 'Properties', 'Post Type General Name', 'tristatecr-listing' ),
             'singular_name'         => _x( 'Property', 'Post Type Singular Name', 'tristatecr-listing' ),
             'menu_name'             => __( 'Properties', 'tristatecr-listing' ),
@@ -44,10 +44,10 @@ class Tristatecr_Listing_Cpt_Menus{
             'not_found_in_trash'    => __( 'Not found in Trash', 'tristatecr-listing' ),
         );
         
-        $args = array(
+        $properties_args = array(
             'label'                 => __( 'Properties', 'tristatecr-listing' ),
             'description'           => __( 'Properties Description', 'tristatecr-listing' ),
-            'labels'                => $labels,
+            'labels'                => $properties_labels,
             'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
             'public'                => true,
             'menu_icon'             => 'dashicons-admin-multisite',
@@ -57,9 +57,9 @@ class Tristatecr_Listing_Cpt_Menus{
         );
         
         
-        register_post_type( 'properties', $args );
+        register_post_type( 'properties', $properties_args );
         
-        $args = array(
+        $search_args = array(
 			'public' 				=> true,
 			'label' 				=> __( 'Searches', 'textdomain' ),
 			'menu_icon' 		=> 'dashicons-search',
@@ -70,7 +70,21 @@ class Tristatecr_Listing_Cpt_Menus{
 			'supports' 			=> array( 'title', 'author', 'custom-fields' ),
 	    );
 	    
-	    register_post_type( 'properties_search', $args );
+	    register_post_type( 'properties_search', $search_args );
+	    
+        $broker_args = array(
+			'public' 				=> true,
+			'label' 				=> __( 'Brokers', 'textdomain' ),
+			'menu_icon' 		=> 'dashicons-search',
+			'has_archive' 	=> false,
+			'rewrite' 			=> array( 'slug' => 'brokers' ),
+			'menu_position' => 5,
+			'show_in_menu' 	=> 'edit.php?post_type=properties',
+			'supports' 			=> array( 'title', 'author', 'custom-fields' ),
+	    );
+	    
+	    register_post_type( 'brokers', $broker_args );
+	    
     }
 
     /**
@@ -209,6 +223,7 @@ class Tristatecr_Listing_Cpt_Menus{
      * Callback function for Buildout API URL for Brokers field
      *
      * @since 1.0.0
+     * 
      */
     public function trs_buildout_api_url_brokers_callback(){
         $settings = get_option('tristate_cr_settings');

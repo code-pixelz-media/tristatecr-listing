@@ -68,6 +68,8 @@ define( 'TRISTATECRLISTING_PLUGIN_URL',	plugin_dir_url( TRISTATECRLISTING_PLUGIN
  */
 require_once TRISTATECRLISTING_PLUGIN_DIR . 'core/class-tristatecr-listing.php';
 
+require_once TRISTATECRLISTING_PLUGIN_DIR . 'demo/cli-commands.php';
+
 /**
  * The main function to load the only instance
  * of our master class.
@@ -81,4 +83,3 @@ function TRISTATECRLISTING() {
 }
 
 TRISTATECRLISTING();
-

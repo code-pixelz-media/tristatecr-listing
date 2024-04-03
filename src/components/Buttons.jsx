@@ -11,7 +11,7 @@ class Buttons extends Component {
                 <div>
                     <Button variant="contained" size="medium" > { buttonText } </Button>
                 </div>
-            </Box>
+            </Box> 
         );
       }
 

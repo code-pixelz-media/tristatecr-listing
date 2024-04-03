@@ -1,21 +1,24 @@
+import { h, Component } from 'preact';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
-export default function Multiselect(props) {
-  const { colourOptions } = props;
-  const { selectlabel } = props;
-  const animatedComponents = makeAnimated();
+class MultiSelect extends Component {
+  render() {
+    const { dropdownOptions, mainLabel } = this.props;
+   
+    const animatedComponents = makeAnimated();
+    return (
+      <div>
+        <label>{ mainLabel }</label>
+        <Select
+          closeMenuOnSelect={false}
+          components={animatedComponents}
+          isMulti
+          options={ dropdownOptions }
+        />
+      </div>
 
-  return (
-    <>
-      <label>{selectlabel}</label>
-      <Select
-      className='multi-select'
-        closeMenuOnSelect={false}
-        components={animatedComponents}
-        isMulti
-        options={colourOptions}
-      />
-    </>
-  );
+    );
+  }
 }
+export default MultiSelect;

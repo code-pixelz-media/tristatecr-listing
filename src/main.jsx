@@ -1,5 +1,5 @@
 import { render } from 'preact'
-import { App } from './app.jsx'
-import './index.css'
+import SearchFilter from './components/SearchFilter'
 
-render(<App />, document.getElementById('filter-wrapper'))
+
+render(<SearchFilter />, document.getElementById('app'))

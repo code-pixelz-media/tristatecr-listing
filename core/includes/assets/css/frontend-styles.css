@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
+:root {
+  --colorwhite : #fff;
+  --colorblack: #333333;
+  --colorblue: #1a76d2;
+  --colorgreen: #00bf7a;
+  --colorred: #ff4d4d;
+  --coloryellow: #EEBF47;
+  --bg-ligt: #f9f9f9;
+  --off-black:  #515962;
+}
+.trisate_cr_container {
+  max-width: 1320px;
+   margin: 0 auto;
+}
+.tristate_cr_d-flex {
+  display: flex;
+  gap: 20px;
+}
+.text-right {
+  text-align: right;
+}
+.tristate_cr_header {
+  margin: 1rem 0;
+}
+.tristate_cr_header h1 , .tristate_cr_header h2.h1{
+  color: var(--colorblack);
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+    font-weight: 600;
+}
+.tristate_cr_header h2 {
+  color: var(--colorblack);
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.tristate_cr_col_8 {
+  width: 60%;
+}
+.tristate_cr_col_4 {
+  width: 40%;
+}

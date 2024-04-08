@@ -50,6 +50,7 @@ class Tristatecr_Listing_Cpt_Menus{
             'labels'                => $properties_labels,
             'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
             'public'                => true,
+            'show_in_rest'          => true,
             'menu_icon'             => 'dashicons-admin-multisite',
             'has_archive'           => true,
             'rewrite'               => array( 'slug' => 'listings' ),
@@ -60,27 +61,28 @@ class Tristatecr_Listing_Cpt_Menus{
         register_post_type( 'properties', $properties_args );
         
         $search_args = array(
-			'public' 				=> true,
-			'label' 				=> __( 'Searches', 'textdomain' ),
-			'menu_icon' 		=> 'dashicons-search',
+			'public' 		=> true,
+			'label' 		=> __( 'Searches', 'textdomain' ),
+			'menu_icon' 	=> 'dashicons-search',
 			'has_archive' 	=> false,
-			'rewrite' 			=> array( 'slug' => 'searches' ),
+			'rewrite' 		=> array( 'slug' => 'searches' ),
 			'menu_position' => 5,
 			'show_in_menu' 	=> 'edit.php?post_type=properties',
-			'supports' 			=> array( 'title', 'author', 'custom-fields' ),
+			'supports' 		=> array( 'title', 'author', 'custom-fields' ),
 	    );
 	    
 	    register_post_type( 'properties_search', $search_args );
 	    
         $broker_args = array(
-			'public' 				=> true,
-			'label' 				=> __( 'Brokers', 'textdomain' ),
-			'menu_icon' 		=> 'dashicons-search',
+			'public' 		=> true,
+			'label' 		=> __( 'Brokers', 'textdomain' ),
+			'menu_icon' 	=> 'dashicons-search',
 			'has_archive' 	=> false,
-			'rewrite' 			=> array( 'slug' => 'brokers' ),
+			'show_in_rest'  => true,
+			'rewrite' 		=> array( 'slug' => 'brokers' ),
 			'menu_position' => 5,
 			'show_in_menu' 	=> 'edit.php?post_type=properties',
-			'supports' 			=> array( 'title', 'author', 'custom-fields' ),
+			'supports' 		=> array( 'title', 'author', 'custom-fields' ),
 	    );
 	    
 	    register_post_type( 'brokers', $broker_args );

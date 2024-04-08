@@ -193,7 +193,7 @@ endif;
 
 				// Data row
 				$item 		= (object) array_combine($header, $data);
-				$id 			= ($item);
+				$id 			= 'unknown';
 				$checksum = md5( json_encode( $item ) );
 				$message = "- Processing #$id";
 				defined('WP_CLI') && WP_CLI::log($message);
@@ -310,7 +310,7 @@ function np_process_buildout_item( $data = null ) {
 	$result['post_content'] = $data->description ?? '';
 	$result['post_excerpt'] = $data->location_description ?? '';
 	$result['post_status'] 	= 'publish';
-	$result['post_type'] 	= 'tsc_property';
+	$result['post_type'] 	= 'properties';
 	$result['tax_input'] 	= array();
 	$result['meta_input'] 	= np_process_buildout_item_meta( $data );
 

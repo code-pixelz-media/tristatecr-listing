@@ -83,3 +83,31 @@ function TRISTATECRLISTING() {
 }
 
 TRISTATECRLISTING();
+
+
+// $f_name = 'https://docs.google.com/spreadsheets/d/1R0-lie_XfdirjxoaXZ59w4etaQPWFBD5c45i-5CaaMk/gviz/tq?tqx=out:csv&sheet=0';
+
+// if (($handle = fopen($f_name, "r")) !== FALSE) {
+// 	$row = 0;
+// 	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+// 		$row++;
+// 		if ($row == 1) {
+// 			$header = $data;
+// 			array_walk($header, function(&$item) {
+// 				$item = sanitize_title( $item );
+// 				$item = strtolower( str_replace('-', '_', $item) );
+// 			});
+// 			continue;
+// 		}
+
+// 		// Data row
+// 		$item 		=  array_combine($header, $data);
+// 		// print_r($item);
+		
+// 		// $id 			= ($item);
+// 		// $checksum = md5( json_encode( $item ) );
+// 		// $message = "- Processing #$id";
+// 	}
+// }
+
+// // die();

@@ -26,7 +26,9 @@ class SearchFilter extends Component {
       rent: { min: 15000, max: 45000 },
     };
   }
-  
+  handleKeyWordChange = () => {
+    alert('hello');
+  }
   render() {
   
     const options = [
@@ -38,8 +40,8 @@ class SearchFilter extends Component {
       <div className='Filterform'>
         <Box  sx={{ display: 'flex' , flexDirection: 'column' , m: 1}}>
         <div className='left-content'>
-            <KeyWordSearch inputplaceholder={ 'Filter by text ...' }/>
-            <MultiSelect mainLabel='Agents' dropdownOptions={ options }  />
+            <KeyWordSearch inputplaceholder={ 'Filter by text ...' } onChange={ this.handleKeyWordChange }/>
+            <MultiSelect mainLabel='Agents' dropdownOptions={ options } />
             <MultiSelect mainLabel='Uses' dropdownOptions={ options }  /> 
             <MultiSelect mainLabel='Types' dropdownOptions={ options }  /> 
             <MultiSelect mainLabel='Neighbourhoods' dropdownOptions={ options }  /> 

@@ -1,10 +1,217 @@
-$mycolor: red;
-$mycolorblack: #000;
+@import url('https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
+  $colorwhite : #fff;
+  $colorblack: #000;
+  $colorblue: #1a76d2;
+  $colorgreen: #00bf7a;
+  $colorred: #ff4d4d;
+  $coloryellow: #EEBF47;
+  $bg-ligt: #f9f9f9;
+  $off-black:  #515962;
 
-.propertylisting-content {
-  color: $mycolorblack;
+  * {
+    margin: 0;
+    padding: 0;
+  }
+.bg-green {
+  background: $colorgreen !important;
+} 
+.bg-blue {
+  background: $colorblue !important;
+}
+.bg-red {
+  background: $colorred !important;
+}
+.bg-yellow {
+  background: $coloryellow !important;
+}
+.color-white {
+color: $colorwhite !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+}
+#tristate-input {
+  width: 100% !important;
+}
+#filter-wrapper .MuiBox-root {
+  gap: 15px;
+
+  .Filterform .MuiBox-root {
+    gap: 5px;
+    padding: 5px;
+  }
+
 }
 
-.propertylisting-content h2 {
-  color: $mycolor;
+.price-range-btm {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px !important;
+}
+.left-content {
+  width: 33.33%;
+  background: var(--bg-ligt);
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+  height: 100vh;
+}
+#filter-wrapper .Filterform > .MuiBox-root {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: calc(100vh - 20px);
+  justify-content: space-around;
+
+}
+.Filterform {
+
+button {
+  margin: 0 !important;
+}
+label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  display: block;
+  margin-bottom: 5px;
+}
+input[type=text] {
+  padding: 2px 8px;
+}
+.multi-select > div {
+  /* max-height: 25px;*/
+  min-height: 25px; 
+
+ > div > div {
+  padding: 0;
+  padding: 0 5px;
+}
+> div > div > div {
+  padding: 0 5px;
+  margin: 0;
+}
+}
+[class*="-MultiValueGeneric2"] {
+  padding: 1px;
+}
+.multi-select [class*="-indicatorContainer"] {
+  padding: 0 8px;
+  
+  [class*="-MultiValueGeneric2"]{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  [class*="-Input2"] {
+    padding: 0;
+    margin: 0;
+    }
+}
+.MuiSlider-root {
+  padding: 5px 0;
+}
+}
+.MuiSlider-root {
+  padding: 5px 0;
+}
+.right-content {
+  width: 66.66%;
+}
+.right-content iframe {
+  border: 0;
+  border-radius: 4px;
+}
+
+ul  {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ul-buttons {
+  display: flex;
+  gap: 5px;
+}
+.ul-buttons li {
+  background: var(--colorblue);
+  padding: 4px 12px 4px 12px;
+  border-radius: 4px;
+  color: var(--colorwhite);
+  font-size: 13px;
+}
+
+.ul-content li {
+line-height: 28px;
+font-family: "Glegoo", serif;
+p {
+  margin: 0;
+  font-family: "Glegoo", serif;
+  font-size: 14px;
+  line-height: 22px;
+}
+span{
+  font-weight: bold;
+}
+}
+
+.property-list-wrapper {
+  margin: 20px 0;
+}
+.property-filter-wrapper {
+  flex-wrap: wrap;
+}
+.propertylisting-content {
+  width: 30.33%;
+}
+.propertylisting-content h2{
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 28px;
+}
+.propertylisting-content h4 {
+  font-size: 16px;
+  margin: 0;
+  font-weight: 400;
+  color: var(--off-black);
+}
+p.price {
+  font-weight: bold;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+}
+.mobile-search-icon {
+  display: none !important;
+}
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+  .left-content {
+    display: none;
+  }
+  .right-content {
+    width: 100%;
+    padding: 20px;
+  }
+  .property-filter {
+    gap: 8px;
+    display: flex;
+    flex-direction: column !important;
+}
+.mobile-search-icon {
+  display: block !important;
+  min-width: auto !important;
+    position: fixed !important;
+    z-index: 99999;
+    right: 0;
+    top: 50px;
+}
+.mobile-search-icon  .MuiButton-icon {
+  margin-left: 0;
+  line-height: 1;
+}
+.mobile-drawer .MuiPaper-root {
+  width: 100%;
+}
+.propertylisting-content {
+  width: 100%;
+}
 }

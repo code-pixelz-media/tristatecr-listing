@@ -75,7 +75,7 @@ class Tristatecr_Listing_Run{
 		add_shortcode( 'trisate_cr_filter', array( $this, 'tristate_cr_filter_shortcode') );
 		add_action( 'wp_enqueue_scripts', array($this , 'tristate_cr_frontend_scripts') );
 		add_action( 'wp_enqueue_scripts', array($this , 'tristate_cr_frontend_styles') );
-
+		add_filter( 'single_template', array($this , 'tristate_cr_frontend_styles') );
 	
 	}
 
@@ -185,6 +185,8 @@ class Tristatecr_Listing_Run{
 				'tabindex'	=> false,
 			),
 		));
+
+		
 
 	}
 

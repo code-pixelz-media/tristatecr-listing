@@ -13,10 +13,12 @@ export function AnchorTemporaryDrawer(props) {
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
-
+  const stopPropagation = (event) => {
+    event.stopPropagation();
+  };
   const DrawerList = (
     <Box sx={{ width: 1 }} role="presentation" onClick={toggleDrawer(false)} >
-      <List>
+      <List onClick={stopPropagation}>
         <FilterForm />
       </List>
       <Divider />
@@ -31,8 +33,7 @@ export function AnchorTemporaryDrawer(props) {
     {open && (
         <Button onClick={toggleDrawer(false)} endIcon={<CloseIcon />} className="bg-red color-white mobile-search-icon"></Button>
       )}
-    <Drawer open={open} onClose={toggleDrawer(false)}  className="mobile-drawer">
-      
+    <Drawer open={open} onClose={toggleDrawer(false)}  className="mobile-drawer" >
       {DrawerList}
     </Drawer>
   </div>

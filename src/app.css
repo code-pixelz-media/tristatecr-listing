@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
 :root {
   --colorwhite : #fff;
   --colorblack: #000;
@@ -7,6 +7,7 @@
   --colorred: #ff4d4d;
   --coloryellow: #EEBF47;
   --bg-ligt: #f9f9f9;
+  --off-black:  #515962;
 }
 * {
   margin: 0;
@@ -38,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 15px;
 }
 #filter-wrapper .Filterform .MuiBox-root {
-  gap: 8px;
+  gap: 5px;
   padding: 5px;
 }
 .price-range-btm {
@@ -67,31 +68,37 @@ h1, h2, h3, h4, h5, h6 {
 }
 .Filterform label {
   font-family: "Montserrat", sans-serif;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
   display: block;
   margin-bottom: 5px;
 }
 .Filterform input[type=text] {
   padding: 2px 8px;
 }
-.Filterform .css-13cymwt-control {
+.Filterform .multi-select > div {
   /* max-height: 25px;*/
   min-height: 25px; 
 }
-.Filterform .css-13cymwt-control > div {
+.Filterform .multi-select > div > div {
   padding: 0;
 }
-.Filterform .css-1y7rh0y-MultiValueGeneric2 {
+.Filterform .multi-select > div > div > div {
+  padding: 0 5px;
+  margin: 0;
+}
+.Filterform [class*="-MultiValueGeneric2"] {
   padding: 1px;
 }
-.Filterform .multi-select .css-1xc3v61-indicatorContainer {
+.Filterform .multi-select [class*="-indicatorContainer"] {
 padding: 0 8px;
 }
-.Filterform .css-1u9des2-indicatorSeparator {
+.Filterform  [class*="-MultiValueGeneric2"]{
   margin-top: 0;
   margin-bottom: 0;
 }
-.Filterform .multi-select .css-w9q2zk-Input2 {
+.Filterform .multi-select [class*="-Input2"] {
 padding: 0;
 margin: 0;
 }
@@ -120,14 +127,18 @@ ul  {
   padding: 4px 12px 4px 12px;
   border-radius: 4px;
   color: var(--colorwhite);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .ul-content li {
 line-height: 28px;
+font-family: "Glegoo", serif;
 }
 .ul-content li p {
   margin: 0;
+  font-family: "Glegoo", serif;
+  font-size: 14px;
+  line-height: 22px;
 }
 ul.ul-features li span{
   font-weight: bold;
@@ -142,18 +153,21 @@ ul.ul-features li span{
   width: 30.33%;
 }
 .propertylisting-content h2{
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 600;
   margin: 0;
-  line-height: 32px;
+  line-height: 28px;
 }
 .propertylisting-content h4 {
-  font-size: 22px;
+  font-size: 16px;
   margin: 0;
+  font-weight: 400;
+  color: var(--off-black);
 }
 p.price {
   font-weight: bold;
-  font-size: 28px;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
 }
 .mobile-search-icon {
   display: none !important;
@@ -166,7 +180,7 @@ p.price {
     width: 100%;
     padding: 20px;
   }
-  .css-q3wz5s-MuiStack-root {
+  .property-filter {
     gap: 8px;
     display: flex;
     flex-direction: column !important;

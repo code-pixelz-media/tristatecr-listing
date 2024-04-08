@@ -3,8 +3,8 @@ import { FilterForm } from './Includes/FilterForm';
 import { GoogleMap } from './Includes/GoogleMap';
 import { PropertyListing } from './Includes/PropertyListing';
 import { AnchorTemporaryDrawer } from './Includes/mobiletoggle';
-import './app.css';
-// import './style.scss'
+// import './app.css';
+import './style.scss'
 import Box from '@mui/material/Box';
 export function App(props) {
 
@@ -16,10 +16,10 @@ export function App(props) {
         <FilterForm />
         </div>
       <div className='right-content'>
+      <AnchorTemporaryDrawer />
           <GoogleMap />
           <PropertyListing />
-      </div>
-      
+      </div>   
       </Box>
     </div>
   );

@@ -1,5 +1,5 @@
-import { h, Component  } from 'preact';
-import { Box , Slider} from '@mui/material';
+import { h, Component } from 'preact';
+import { Box, Slider } from '@mui/material';
 
 class RangeSelect extends Component {
   constructor(props) {
@@ -19,27 +19,28 @@ class RangeSelect extends Component {
 
   render() {
     const { value } = this.state;
-    const { mainLabel , initialMinValue ,initialMaxValue } = this.props;
+    const { mainLabel, initialMinValue, initialMaxValue } = this.props;
+
 
     return (
-    <div>
-      <Box sx={{ width: 100+'%' }}>
-        <label>{ mainLabel }</label>
-        <Slider
-          getAriaLabel={() => 'Temperature range'}
-          value={value}
-          onChange={this.handleChange}
-          valueLabelDisplay="auto"
-          getAriaValueText={this.valuetext}
-          min={0}
-          max={400000}
-        />
-      </Box>
-      <div className='price-range-btm'>
-        <span>{initialMinValue}</span>
-        <span>{initialMaxValue}</span>
+      <div>
+        <Box sx={{ width: 100 + '%' }}>
+          <label>{mainLabel}</label>
+          <Slider
+            getAriaLabel={() => 'Temperature range'}
+            value={value}
+            onChange={this.handleChange}
+            valueLabelDisplay="auto"
+            getAriaValueText={this.valuetext}
+            min={0}
+            max={400000}
+          />
+        </Box>
+        <div className='price-range-btm'>
+          <span>{initialMinValue}</span>
+          <span>{initialMaxValue}</span>
+        </div>
       </div>
-    </div>
     );
   }
 }

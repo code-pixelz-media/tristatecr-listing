@@ -37,8 +37,9 @@ function tristatectr_rest_api_init() {
 
 function tristatectr_rest_listings( $data ) {
 	$posts = get_posts( array(
-		'post_type' => 'tsc_property',
+		'post_type' => 'properties',
 		'posts_per_page' => -1,
+		'post_status' => 'publish'
 	) );
 
 	if ( empty( $posts ) ) {
@@ -160,7 +161,6 @@ function tristatectr_rest_listings( $data ) {
 			'city' 					=> $city,
 			'borough' 			=> $borough,
 			'state' 				=> $state,
-
 			'image' 				=> $image,
 
 			'lat' 					=> $lat,
@@ -187,8 +187,8 @@ function tristatectr_rest_brokers_v2() {
 	$results = array();
 	foreach( $brokers as $key => $value ) {
 		$results[] = array(
-			'id' => $key,
-			'name' => $value,
+			'value' => $key,
+			'label' => $value,
 		);
 	}
 	return (array) $results;

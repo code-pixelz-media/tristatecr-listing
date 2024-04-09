@@ -71,7 +71,7 @@ if (!array_intersect(['json'], $skip)) :
 		}
 
 		update_option('tristatecr_datasync_brokers_checksum', $brokers_checksum);
-		update_option('tristatecr_datasync_brokers', $brokers);
+		// update_option('tristatecr_datasync_brokers', $brokers);
 	} else {
 		defined('DOING_CRON') && update_option( CRON_STATUS_OPTION, 'Brokers unchanged' );
 		$message = "Brokers checksum unchanged. Skipping...";
@@ -572,3 +572,57 @@ function tristatecr_datasync_cron_function() {
 	error_log($message, 3, LOG_FILE);
 }
 
+
+/* insert broker name and Id to brokers CPT */
+
+// Check if user already exists as a broker
+function user_exists_as_broker($user_id)
+{
+	$args = array(
+		'post_type' => 'brokers',
+		'meta_query' => array(
+			array(
+				'key' => 'user_id',
+				'value' => $user_id,
+			),
+		),
+	);
+
+	$query = new WP_Query($args);
+	return $query->have_posts();
+}
+
+// Insert data into custom post type "brokers"
+function insert_broker_data()
+{
+
+	$datas = get_option('tristatecr_datasync_brokers');
+
+	//var_dump($datas);
+	if ($datas) {
+		foreach ($datas as $key => $data) {
+			$user_id = $key;
+			$user_name = $data;
+
+
+			// Check if user already exists as a broker
+			if (!user_exists_as_broker($user_id)) {
+				// User does not exist as a broker, insert data into "brokers" custom post type
+				$post_data = array(
+					'post_title' => $user_name,
+					'post_content' => '',
+					'post_type' => 'brokers',
+					'post_status' => 'publish',
+					// Add any additional fields as needed
+					'meta_input' => array(
+						'user_id' => $user_id,
+						// Additional meta fields
+					),
+				);
+
+				wp_insert_post($post_data);
+			}
+		}
+	}
+}
+add_action('init', 'insert_broker_data');

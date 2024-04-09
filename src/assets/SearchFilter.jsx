@@ -8,12 +8,14 @@ import '../app.css';
 
 const MUTIPLE_SELECTS = ['Agents', 'Uses', 'Types', 'Neighbourhoods', 'Zip codes', 'Cities', 'State', 'Vented'];
 const REST_BROKER_URL = 'http://localhost:10019/wp-json/tristatectr/v2/brokers';
+
 const PROPERTIES = 'http://localhost:10019/wp-json/tristatectr/v1/listings';
-let i=1;
+
 class SearchFilter extends Component {
 
 	state = {
 		keywordText: '',
+		agents: [],
 		dropdownOptions: {},
 		price: { min: 12000, max: 35000 },
 		size: { min: 1500, max: 4500 },
@@ -24,9 +26,59 @@ class SearchFilter extends Component {
 
 	componentDidMount() {
 		this.setDropdownOptions();
-		
 	}
 
+	componentDidUpdate() {
+	
+		const { keywordText, dropdownOptions, price, size, rent } = this.state;
+	
+		// Construct query parameters based on user selections
+		const queryParams = [];
+		
+		// Add keyword text
+		if (keywordText.trim() !== '') {
+			queryParams.push(`keyword=${encodeURIComponent(keywordText.trim())}`);
+		}
+	
+		// Add selected values from multi-select dropdowns
+		MUTIPLE_SELECTS.forEach(label => {
+			const selectedValues = dropdownOptions[label.toLowerCase()] || [];
+			if (selectedValues.length > 0) {
+				const valuesString = selectedValues.map(value => encodeURIComponent(value)).join(',');
+				queryParams.push(`${label.toLowerCase()}=${valuesString}`);
+			}
+		});
+	
+		// Add price range
+		queryParams.push(`min_price=${price.min}`);
+		queryParams.push(`max_price=${price.max}`);
+	
+		// Add size range
+		queryParams.push(`min_size=${size.min}`);
+		queryParams.push(`max_size=${size.max}`);
+	
+		// Add rent range
+		queryParams.push(`min_rent=${rent.min}`);
+		queryParams.push(`max_rent=${rent.max}`);
+	
+		// Construct the final query string
+		const queryString = queryParams.join('&');
+	
+		// Combine with base URL
+		const newRestApiQuery = `${PROPERTIES}?${queryString}`;
+		
+		// Update the state only if restApiQuery is different
+		if (newRestApiQuery !== this.state.restApiQuery) {
+			this.setState({ restApiQuery: newRestApiQuery });
+		}
+	}
+	useEffect = (() => {
+	console.log('hi');
+		// Code here runs before every render
+		// Perform operations based on props or state
+		// Note: empty dependency array [] ensures this effect runs only once, similar to componentDidMount
+	  }, []); 
+	  
 	setDropdownOptions = () => {
 		MUTIPLE_SELECTS.forEach(label => {
 			this.fetchDropdownOptions(label);
@@ -73,14 +125,13 @@ class SearchFilter extends Component {
 	}
 
 	handleSelectedValues = (fieldName, choices) => {
-	
+		// Handle selected values
+		// console.log(choices);
 		this.setState({ [fieldName]: choices });
-		
 	}
 
 	handleKeyWordChange = (event) => {
 		this.setState({ keywordText: event.target.value });
-		this.componentDidUpdate();
 	}
 	
 	handlePriceChange = (min, max) => {
@@ -96,8 +147,7 @@ class SearchFilter extends Component {
 	}
 
 	render() {
-		i++;
-		console.log(i);
+		
 		return (
 			<div className='Filterform'>
 				<Box sx={{ display: 'flex', flexDirection: 'column', m: 1 }}>

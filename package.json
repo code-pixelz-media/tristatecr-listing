@@ -14,6 +14,7 @@
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@mui/material": "^5.15.14",
+    "google-map-react": "^2.2.1",
     "preact": "^10.19.6",
     "react-select": "^5.8.0"
   },

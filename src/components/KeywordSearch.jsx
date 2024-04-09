@@ -1,15 +1,20 @@
 import TextField from '@mui/material/TextField';
-import { h, Component } from 'preact';
+import { Component } from 'preact';
 
 class KeyWordSearch extends Component {
 
-    render() {
-      const { inputplaceholder } = this.props;
-      
-      return (
-        <TextField id="tristate-input" placeholder={ inputplaceholder } />
-      );
+    handleKeyWordUpdate = (event) => {
+        const keyword = event.target.value;
+        this.props.onKeywordChange(keyword);
     }
-  }
-  
-  export default KeyWordSearch;
+
+    render() {
+        const { inputplaceholder } = this.props;
+
+        return (
+            <TextField id="tristate-input" placeholder={inputplaceholder} onChange={this.handleKeyWordUpdate} />
+        );
+    }
+}
+
+export default KeyWordSearch;

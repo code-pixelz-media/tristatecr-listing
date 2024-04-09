@@ -15,12 +15,17 @@ class RangeSelect extends Component {
 
   handleChange = (event, newValue) => {
     this.setState({ value: newValue });
+    this.props.onChange(newValue[0], newValue[1]);
   };
+  
+  handleMultipleSelectChange = () => {
+  
+  }
 
   render() {
     const { value } = this.state;
     const { mainLabel, initialMinValue, initialMaxValue } = this.props;
-
+    
 
     return (
       <div>

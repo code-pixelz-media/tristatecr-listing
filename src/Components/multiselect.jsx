@@ -6,13 +6,14 @@ import makeAnimated from 'react-select/animated';
 
 class MultiSelect extends Component {
 
+
   render() {
     const { dropdownOptions, mainLabel , handleSelectedValues } = this.props;
     return (
       <div>
         <label>{ mainLabel }</label>
         <Select
-          closeMenuOnSelect={false}
+          closeMenuOnSelect={true}
           components={ makeAnimated() }
           isMulti
           options={ dropdownOptions }

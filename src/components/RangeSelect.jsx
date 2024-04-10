@@ -18,8 +18,8 @@ class RangeSelect extends Component {
     this.props.onChange(newValue[0], newValue[1]);
   };
   
-  handleMultipleSelectChange = () => {
-  
+  handleMultipleSelectChange = (choices) => {
+    console.log(choices);
   }
 
   render() {
